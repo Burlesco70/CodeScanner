@@ -1,0 +1,27 @@
+version: 1
+disable_existing_loggers: true
+
+formatters:
+  simple:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  warn_formatter:
+    format: '%(levelname)s - %(message)s'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: WARN
+    formatter: warn_formatter
+    stream: ext://sys.stdout
+
+  file_handler:
+    class: logging.FileHandler
+    level: INFO
+    formatter: simple
+    filename: sh_scanner.log
+    encoding: utf8
+
+root:
+  level: NOTSET
+  handlers: [console, file_handler]
+  propogate: yes  

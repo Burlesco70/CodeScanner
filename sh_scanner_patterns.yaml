@@ -1,0 +1,45 @@
+(if)(\s)+(\[.*\])(\s)*($):
+- ERROR
+- Linux richiede sempre il punto e virgola nel comando IF dopo le quadre
+- \1\2\3;\4\5
+(if)(\s)+(\[.*\])(\s)+(then):
+- ERROR
+- Linux richiede sempre il punto e virgola nel comando IF dopo le quadre
+- \1\2\3;\4\5
+FTPsecGBS:
+- WARNING
+- FTPsecGBS invoca un commando ftp con delle opzioni per i certificati non supportate
+  (-Z)
+- ''
+cut(.)*0:
+- ERROR
+- Linux does not support end-of-raw delimiter with value 0 (zero)
+- ''
+cut(\s)+-d(\s)+\'\#:
+- ERROR
+- Linux does not support string as field delimiter
+- ''
+mailx -m|mailx(.)+-m:
+- ERROR
+- "Linux non prevede l\u2019opzione -m ( gestione allegati ) con il comando mailx"
+- ''
+remsh:
+- WARNING
+- remsh deprecatate, use ssh
+- ''
+rpc:
+- WARNING
+- rpc deprecated, use scp
+- ''
+set -A:
+- ERROR
+- Linux does not support array definition with this syntax
+- ''
+typeset:
+- ERROR
+- Linux non supporta alcune opzioni del comando, in particolare pad left/rigth
+- ''
+wc:
+- WARNING
+- "Con wc possibile problema di compatibilit\xE0 con Linux"
+- ''
